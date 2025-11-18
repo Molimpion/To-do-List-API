@@ -66,3 +66,17 @@ Authorization: Bearer {{authToken}}
 DELETE {{baseUrl}}/todos/1
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
+
+###
+
+# === 8. Listar APENAS Pendentes ===
+GET {{baseUrl}}/todos?status=pending&page=1&limit=5
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# === 9. Listar APENAS Concluídas ===
+GET {{baseUrl}}/todos?status=completed
+Content-Type: application/json
+Authorization: Bearer {{authToken}}

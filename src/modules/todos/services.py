@@ -23,8 +23,18 @@ class TodoService:
         return new_todo
 
     @staticmethod
-    def list_all(user_id, page, limit):
-        return Todo.query.filter_by(user_id=user_id).paginate(
+    def list_all(user_id, page, limit, status=None):
+        # Começa filtrando apenas as tarefas do usuário
+        query = Todo.query.filter_by(user_id=user_id)
+
+        # Aplica filtro de status se for passado
+        if status == 'completed':
+            query = query.filter_by(is_completed=True)
+        elif status == 'pending':
+            query = query.filter_by(is_completed=False)
+
+        # Retorna ordenado pelas mais recentes primeiro
+        return query.order_by(Todo.created_at.desc()).paginate(
             page=page, per_page=limit, error_out=False
         )
 

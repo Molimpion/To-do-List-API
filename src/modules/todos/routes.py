@@ -14,19 +14,23 @@ def create():
 
 @todos_bp.route('/', methods=['GET'])
 @jwt_required()
-def list_all():
+def list_tasks():
     user_id = get_jwt_identity()
+    
+    # Captura os parametros da URL
     page = request.args.get('page', 1, type=int)
     limit = request.args.get('limit', 10, type=int)
-
-    pagination = TodoService.list_all(user_id, page, limit)
-
+    status = request.args.get('status') # Ex: 'completed' ou 'pending'
+    
+    pagination = TodoService.list_all(user_id, page, limit, status)
+    
     return jsonify({
         "data": [t.to_dict() for t in pagination.items],
         "meta": {
             "page": page,
             "total_pages": pagination.pages,
-            "total_items": pagination.total
+            "total_items": pagination.total,
+            "filter": status
         }
     }), 200
 
