@@ -4,12 +4,12 @@
 
 *Este projeto é a implementação do desafio **Todo List API** do [roadmap.sh](https://roadmap.sh/projects/todo-list-api), construído com foco em **Arquitetura Modular (Service Pattern)** e **Qualidade de Código**.*
 
-<div align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=py,flask,mysql,docker,swagger,pytest" />
-  </a>
-</div>
-
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
 ## 1\. Visão Geral e Estado do Projeto
 
@@ -17,24 +17,22 @@ Este repositório contém uma **API RESTful** completa para gerenciamento de tar
 
 Todos os requisitos funcionais do backend foram **concluídos, documentados com Swagger e validados por testes automatizados**.
 
-  * [x] **Funcionalidade Central (CRUD):** Completo
-  * [x] **Autenticação (JWT):** Completo
-  * [x] **Paginação e Filtros:** Completo
-  * [x] **Testes Automatizados (Pytest):** Completo
-  * [x] **Documentação Interativa (Swagger):** Completo
-  * [x] **Arquitetura Modular (Service Pattern):** Completo
+- [x] Funcionalidade Central (CRUD)
+- [x] Autenticação (JWT)
+- [x] Paginação e Filtros
+- [x] Testes Automatizados (Pytest)
+- [x] Documentação Interativa (Swagger)
+- [x] Arquitetura Modular (Service Pattern)
 
------
+### 2. Arquitetura e Decisões de Design
 
-## 2\. Arquitetura e Decisões de Design
-
-A aplicação segue o padrão **Modular (Feature-Based)** para maximizar a testabilidade e o reuso de código:
-
-  * **Padrão Service:** Toda a lógica de negócio (*hashing*, validação de dados, consultas ao banco) está isolada na camada **Service**. As rotas (`routes.py`) apenas lidam com a camada HTTP.
-  * **Tratamento de Erros:** Sistema centralizado no `__init__.py` que captura todas as exceções personalizadas (`AuthError`, `NotFoundError`) e as transforma em respostas JSON padronizadas.
-  * **Banco de Dados:** MySQL 8.0, orquestrado via **Docker Compose**.
-  * **Developer Experience (DX):** Uso da biblioteca **Rich** para logs coloridos e tracebacks formatados no terminal.
-  * **QA:** Uso de **Pytest** com banco de dados SQLite em memória (`:memory:`) para garantir que os testes sejam rápidos e isolados.
+- Separação por módulos (features)
+- Service Pattern para lógica desacoplada
+- Flask e Python para microserviços
+- MySQL 8 via Docker Compose
+- JWT para autenticação
+- Handler de erros centralizados (__init__.py)
+- DX: Rich, Flasgger
 
 -----
 
@@ -101,3 +99,35 @@ A documentação visual e interativa está disponível em: `http://127.0.0.1:500
 | `PUT` | `/todos/{id}` | Atualiza o conteúdo ou status (`is_completed`) | **Token Obrigatório** |
 | `DELETE` | `/todos/{id}` | Remove uma tarefa | **Token Obrigatório** |
 
+
+# 📝 Todo List API (Roadmap.sh Challenge)
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+
+Este projeto é a implementação do desafio Todo List API do [roadmap.sh](https://roadmap.sh/projects/todo-list-api), construído com foco em Arquitetura Modular (Service Pattern) e Qualidade de Código.
+
+---
+
+### 1. Visão Geral e Estado do Projeto
+
+- [x] Funcionalidade Central (CRUD)
+- [x] Autenticação (JWT)
+- [x] Paginação e Filtros
+- [x] Testes Automatizados (Pytest)
+- [x] Documentação Interativa (Swagger)
+- [x] Arquitetura Modular (Service Pattern)
+
+### 2. Arquitetura e Decisões de Design
+
+- Separação por módulos (features)
+- Service Pattern para lógica desacoplada
+- Flask e Python para microserviços
+- MySQL 8 via Docker Compose
+- JWT para autenticação
+- Handler de erros centralizados (__init__.py)
+- DX: Rich, Flasgger
