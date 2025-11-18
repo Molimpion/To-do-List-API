@@ -87,5 +87,3 @@ Disponível em `http://127.0.0.1:5000/docs`.
 | GET    | `/todos`         | Lista tarefas (paginação/filtros) | Token obrigatório |
 | PUT    | `/todos/{id}`    | Atualiza tarefa                   | Token obrigatório |
 | DELETE | `/todos/{id}`    | Remove tarefa                     | Token obrigatório |
-
-Se quiser, posso gerar uma versão **ainda mais enxuta**, porém mantendo tudo o que você escreveu.
