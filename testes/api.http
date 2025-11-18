@@ -1,0 +1,68 @@
+@baseUrl = http://localhost:5000
+
+# === 1. Verificar se API esta no ar ===
+GET {{baseUrl}}/
+Content-Type: application/json
+
+###
+
+# === 2. Registrar um novo usuario ===
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "username": "meu_usuario",
+    "password": "minha_senha_secreta"
+}
+
+###
+
+# === 3. Login (A magica acontece aqui) ===
+# @name loginRequest
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "username": "meu_usuario",
+    "password": "minha_senha_secreta"
+}
+
+###
+
+# === Variavel para capturar o token automaticamente ===
+@authToken = {{loginRequest.response.body.access_token}}
+
+# === 4. Criar Tarefa (Usa o token acima) ===
+POST {{baseUrl}}/todos
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "title": "Terminar o projeto da API",
+    "description": "Fazer o deploy no final"
+}
+
+###
+
+# === 5. Listar Tarefas ===
+GET {{baseUrl}}/todos?page=1&limit=5
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# === 6. Atualizar Tarefa (Substitua o ID 1 pelo ID real) ===
+PUT {{baseUrl}}/todos/1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "is_completed": true
+}
+
+###
+
+# === 7. Deletar Tarefa ===
+DELETE {{baseUrl}}/todos/1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
