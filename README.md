@@ -1,7 +1,5 @@
 # 🐍 Todo List API (Desafio Roadmap.sh)
 
------
-
 *Este projeto é a implementação do desafio **Todo List API** do [roadmap.sh](https://roadmap.sh/projects/todo-list-api), construído com foco em **Arquitetura Modular (Service Pattern)** e **Qualidade de Código**.*
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -98,36 +96,3 @@ A documentação visual e interativa está disponível em: `http://127.0.0.1:500
 | `GET` | `/todos` | Lista tarefas (com Paginação e Filtros `?status=`) | **Token Obrigatório** |
 | `PUT` | `/todos/{id}` | Atualiza o conteúdo ou status (`is_completed`) | **Token Obrigatório** |
 | `DELETE` | `/todos/{id}` | Remove uma tarefa | **Token Obrigatório** |
-
-
-# 📝 Todo List API (Roadmap.sh Challenge)
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
-![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
-
-Este projeto é a implementação do desafio Todo List API do [roadmap.sh](https://roadmap.sh/projects/todo-list-api), construído com foco em Arquitetura Modular (Service Pattern) e Qualidade de Código.
-
----
-
-### 1. Visão Geral e Estado do Projeto
-
-- [x] Funcionalidade Central (CRUD)
-- [x] Autenticação (JWT)
-- [x] Paginação e Filtros
-- [x] Testes Automatizados (Pytest)
-- [x] Documentação Interativa (Swagger)
-- [x] Arquitetura Modular (Service Pattern)
-
-### 2. Arquitetura e Decisões de Design
-
-- Separação por módulos (features)
-- Service Pattern para lógica desacoplada
-- Flask e Python para microserviços
-- MySQL 8 via Docker Compose
-- JWT para autenticação
-- Handler de erros centralizados (__init__.py)
-- DX: Rich, Flasgger
