@@ -21,6 +21,24 @@ class TodoService:
         db.session.commit()
         
         return new_todo
+    
+    @staticmethod
+    def update(user_id, todo_id, data):
+        todo = Todo.query.filter_by(id=todo_id, user_id=user_id).first()
+        
+        if not todo:
+            raise TodoNotFoundError()
+
+        # Atualiza apenas se o campo foi enviado no JSON (preserva o valor antigo caso contrário)
+        todo.title = data.get('title', todo.title)
+        todo.description = data.get('description', todo.description)
+        
+        # Verificação específica para booleano (porque False é um valor válido)
+        if 'is_completed' in data:
+            todo.is_completed = data['is_completed']
+
+        db.session.commit()
+        return todo
 
     @staticmethod
     def list_all(user_id, page, limit, status=None):

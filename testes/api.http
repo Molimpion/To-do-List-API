@@ -80,3 +80,38 @@ Authorization: Bearer {{authToken}}
 GET {{baseUrl}}/todos?status=completed
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
+
+###
+
+# === 10. Atualizar: Marcar como Concluída ===
+# (Substitua o ID '1' pelo ID de uma tarefa real sua)
+PUT {{baseUrl}}/todos/1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "is_completed": true
+}
+
+###
+
+# === 11. Atualizar: Editar Conteúdo (Título e Descrição) ===
+PUT {{baseUrl}}/todos/1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "title": "Título Atualizado via API",
+    "description": "Nova descrição atualizada"
+}
+
+###
+
+# === 12. Teste de Erro: Tentar atualizar tarefa inexistente ===
+PUT {{baseUrl}}/todos/99999
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "is_completed": true
+}

@@ -34,6 +34,16 @@ def list_tasks():
         }
     }), 200
 
+@todos_bp.route('/<int:todo_id>', methods=['PUT'])
+@jwt_required()
+def update_task(todo_id):
+    user_id = get_jwt_identity()
+    data = request.get_json()
+    
+    updated_todo = TodoService.update(user_id, todo_id, data)
+    
+    return jsonify(updated_todo.to_dict()), 200
+
 @todos_bp.route('/<int:todo_id>', methods=['DELETE'])
 @jwt_required()
 def delete(todo_id):
