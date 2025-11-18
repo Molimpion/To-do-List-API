@@ -2,7 +2,7 @@
 
 *Implementação do desafio **Todo List API** do [roadmap.sh](https://roadmap.sh/projects/todo-list-api), usando **Arquitetura Modular (Service Pattern)** e foco em **qualidade de código**.*
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge\&logo=flask\&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge\&logo=mysql\&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge\&logo=docker\&logoColor=white) ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge\&logo=swagger\&logoColor=black) ![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge\&logo=pytest\&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black) ![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
 ## 1. Visão Geral e Estado do Projeto
 
@@ -37,27 +37,47 @@ Git · Docker/Compose · Python 3.10+ com venv
 
 ### Setup
 
-1. Clone, crie e ative o venv
-2. Instale dependências:
-
+1. Clone o repositório e entre na pasta:
    ```bash
-   pip install -r requirements.txt
-   ```
-3. Crie o `.env` na raiz
-4. Inicie o banco:
+   git clone [https://github.com/seu-usuario/todo-list-api.git](https://github.com/seu-usuario/todo-list-api.git)
+   cd todo-list-api
+````
 
-   ```bash
-   docker-compose up -d
-   ```
-5. Inicie a aplicação:
+2.  Crie e ative o ambiente virtual:
 
-   ```bash
-   python run.py
-   ```
+    ```bash
+    # Linux/macOS
+    python3 -m venv venv
+    source venv/bin/activate
 
----
+    # Windows (PowerShell)
+    python -m venv venv
+    .\venv\Scripts\activate
+    ```
 
-## 4. Testes e Documentação
+3.  Instale as dependências:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4.  Crie o arquivo `.env` na raiz (use o `.env.example` como base se houver)
+
+5.  Inicie o banco de dados:
+
+    ```bash
+    docker-compose up -d
+    ```
+
+6.  Inicie a aplicação:
+
+    ```bash
+    python run.py
+    ```
+
+-----
+
+## 4\. Testes e Documentação
 
 ### Testes (Pytest)
 
@@ -71,13 +91,13 @@ PYTHONPATH=. pytest
 
 Disponível em `http://127.0.0.1:5000/docs`.
 
-1. Use `/auth/login` para obter o `access_token`.
-2. Clique em **Authorize** → `Bearer [TOKEN]`.
-3. Execute o CRUD pela interface.
+1.  Use `/auth/login` para obter o `access_token`.
+2.  Clique em **Authorize** → `Bearer [TOKEN]`.
+3.  Execute o CRUD pela interface.
 
----
+-----
 
-## 5. Endpoints Principais
+## 5\. Endpoints Principais
 
 | Método | Endpoint         | Descrição                         | Segurança         |
 | ------ | ---------------- | --------------------------------- | ----------------- |
